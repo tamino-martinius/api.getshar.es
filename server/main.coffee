@@ -44,6 +44,9 @@ getCounts = (network, callback, val1, val2) ->
       when "pinterestFollower" #Scraping - No official API
         url: "http://www.pinterest.com/#{val1}"
         regexp: /pinterestapp:followers.*?([\d]+)/
+      when "instagram"
+        url: "http://instagram.com/#{val1}"
+        regexp: /followed_by.*?([\d]+)/
       when "googleplus" #Scraping - No API without API-Key
         url: "https://plusone.google.com/_/+1/fastbutton?url=#{val1}"
         regexp: /window\.__SSR = {c: ([\d]+)/
