@@ -38,6 +38,12 @@ getCounts = (network, callback, val1, val2) ->
             Authorization: """
               OAuth oauth_consumer_key="ujSWbQ7XE7rQKBt4f7mQ", oauth_nonce="71e808885f3038baee59b85f6eb0730a", oauth_signature="#{signingString}", oauth_signature_method="HMAC-SHA1", oauth_timestamp="#{timestamp}", oauth_token="1117398733-N7G2I1bxGtLu7i4Lb83RacLVgmbMkpeMj1HOm6b", oauth_version="1.0"
             """
+      when "pinterestPins" #Scraping - No official API
+        url: "http://www.pinterest.com/#{val1}"
+        regexp: /pinterestapp:pins.*?([\d]+)/
+      when "pinterestFollower" #Scraping - No official API
+        url: "http://www.pinterest.com/#{val1}"
+        regexp: /pinterestapp:followers.*?([\d]+)/
       when "googleplus" #Scraping - No API without API-Key
         url: "https://plusone.google.com/_/+1/fastbutton?url=#{val1}"
         regexp: /window\.__SSR = {c: ([\d]+)/
